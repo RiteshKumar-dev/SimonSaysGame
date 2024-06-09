@@ -137,21 +137,27 @@ const Simon = () => {
 
   return (
     <div className="flex flex-col justify-center items-center text-white mt-10">
-      <h1 className="text-3xl text-neutral-700 font-bold mb-4 mt-4">
-        Simon Says Game
-      </h1>
-      <p className="text-xl text-neutral-600 mb-4">
-        How long a sequence can you remember?
+      <div className="relative">
+        <h1 className="text-2xl text-center  sm:text-3xl text-neutral-700 font-bold mb-4 mt-4">
+          Simon Says Game
+        </h1>
+        <p className="text-lg sm:text-xl text-neutral-600 mb-4">
+          How long a sequence can you remember?
+        </p>
+        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-3/4 h-1 bg-neutral-700 rounded"></div>
+      </div>
+      <p className="text-lg sm:text-xl text-neutral-900 mb-4">
+        Highest Score: {score}
       </p>
-      <p className="text-xl text-neutral-900 mb-4">Highest Score: {score}</p>
-      <div className="relative flex flex-col justify-center items-center mt-10">
-        <div>
+      <div className="relative flex flex-col justify-center items-center mt-10 space-y-2 sm:space-y-4">
+        <div className="flex space-x-2 sm:space-x-4">
           <GameBtn
             border="rounded-tl-full"
             bg="bg-green-400"
             ref={greenRef}
             onClick={() => handleUserInput("green")}
             disabled={!gameStarted}
+            className="w-20 h-20 sm:w-24 sm:h-24"
           />
           <GameBtn
             border="rounded-tr-full"
@@ -159,15 +165,17 @@ const Simon = () => {
             ref={redRef}
             onClick={() => handleUserInput("red")}
             disabled={!gameStarted}
+            className="w-20 h-20 sm:w-24 sm:h-24"
           />
         </div>
-        <div>
+        <div className="flex space-x-2 sm:space-x-4">
           <GameBtn
             border="rounded-bl-full"
             bg="bg-yellow-400"
             ref={yellowRef}
             onClick={() => handleUserInput("yellow")}
             disabled={!gameStarted}
+            className="w-20 h-20 sm:w-24 sm:h-24"
           />
           <GameBtn
             border="rounded-br-full"
@@ -175,10 +183,11 @@ const Simon = () => {
             ref={blueRef}
             onClick={() => handleUserInput("blue")}
             disabled={!gameStarted}
+            className="w-20 h-20 sm:w-24 sm:h-24"
           />
         </div>
         <button
-          className="absolute text-white bg-neutral-800 text-xl sm:text-2xl font-bold rounded-full w-[150px] sm:w-[175px] h-[150px] sm:h-[175px] duration-200 hover:scale-105"
+          className="absolute text-white bg-neutral-800 text-lg sm:text-xl font-bold rounded-full w-32 h-32 sm:w-36 sm:h-36 duration-200 hover:scale-105"
           onClick={handleNextLevel}
           disabled={playing}
         >
